@@ -8,6 +8,7 @@ import { Galeria } from './components/Galeria'
 
 import fotos from './fotos.json'
 import { useState } from 'react'
+import { ModalZoom } from './components/ModalZoom'
 
 
 const FundoGradiente = styled.div`
@@ -35,7 +36,7 @@ const ConteudoDaGaleria = styled.section`
 
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
-
+  const [fotoSelecionada, setFotoSelecionada] = useState(null)
   return (
     <>
       <FundoGradiente>
@@ -51,10 +52,9 @@ const App = () => {
               />
               <Galeria fotos={fotosDaGaleria}/>
             </ConteudoDaGaleria>
-            
           </MainContainer>
-          
         </AppContainer>
+        <ModalZoom />
       </FundoGradiente>
     </>
   )
