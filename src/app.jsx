@@ -38,26 +38,30 @@ const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
   return (
-    <>
-      <FundoGradiente>
-        <EstilosGlobais />
-        <AppContainer>
-          <Cabecalho />
-          <MainContainer>
-            <BarraLateral />
-            <ConteudoDaGaleria>
-              <Banner 
-                texto="A galeria mais completa de fotos do espaço!"
-                backgroundImage={bannerBackground}
-              />
-              <Galeria fotos={fotosDaGaleria}/>
-            </ConteudoDaGaleria>
-          </MainContainer>
-        </AppContainer>
-        <ModalZoom />
-      </FundoGradiente>
-    </>
-  )
+    <FundoGradiente>
+      <EstilosGlobais />
+      <AppContainer>
+        <Cabecalho />
+        <MainContainer>
+          <BarraLateral />
+          <ConteudoDaGaleria>
+            <Banner
+              texto="A galeria mais completa de fotos do espaço!"
+              backgroundImage={bannerBackground}
+            />
+            <Galeria
+              aoFotoSelecionada={(foto) => setFotoSelecionada(foto)}
+              fotos={fotosDaGaleria}
+            />
+          </ConteudoDaGaleria>
+        </MainContainer>
+      </AppContainer>
+      <ModalZoom
+        foto={fotoSelecionada}
+        aoFechar={() => setFotoSelecionada(null)}
+      />
+    </FundoGradiente>
+  );
 }
 
 export default App
