@@ -8,4 +8,9 @@ export const BotaoIcone = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
 `
